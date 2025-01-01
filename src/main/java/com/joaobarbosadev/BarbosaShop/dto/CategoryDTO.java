@@ -1,6 +1,6 @@
 package com.joaobarbosadev.BarbosaShop.dto;
 
-import com.joaobarbosadev.wolfCommerce.entities.Category;
+import com.joaobarbosadev.BarbosaShop.entities.Category;
 
 import java.io.Serial;
 import java.io.Serializable;
