@@ -2,6 +2,7 @@ package com.joaobarbosadev.BarbosaShop.Exceptions.handlers;
 
 import com.joaobarbosadev.BarbosaShop.Exceptions.ControllerNotFoundException;
 import com.joaobarbosadev.BarbosaShop.Exceptions.components.StandardError;
+import com.joaobarbosadev.BarbosaShop.Utils.Utils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -20,6 +21,7 @@ public class ControllerExceptionHandler {
         error.setError("Recurso não encontrado");
         error.setPath(request.getRequestURI());
         error.setStatus(status.value());
+        error.setTimestamp(Utils.getFormatterInstance());
         return ResponseEntity.status(status).body(error);
     }
 }

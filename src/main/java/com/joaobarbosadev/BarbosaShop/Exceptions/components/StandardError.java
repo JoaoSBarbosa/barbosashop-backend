@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public class StandardError {
 
-    private Instant timestamp;
+    private String timestamp;
     private String message;
     private Integer status;
     private String path;
@@ -12,7 +12,7 @@ public class StandardError {
 
     public StandardError(){}
 
-    public StandardError(Instant timestamp, String message, Integer status, String path, String error) {
+    public StandardError(String timestamp, String message, Integer status, String path, String error) {
         this.timestamp = timestamp;
         this.message = message;
         this.status = status;
@@ -20,11 +20,11 @@ public class StandardError {
         this.error = error;
     }
 
-    public Instant getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Instant timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
