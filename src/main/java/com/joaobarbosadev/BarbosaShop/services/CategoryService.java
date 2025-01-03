@@ -1,14 +1,19 @@
 package com.joaobarbosadev.BarbosaShop.services;
 
 import com.joaobarbosadev.BarbosaShop.Exceptions.ControllerNotFoundException;
+import com.joaobarbosadev.BarbosaShop.Utils.Utils;
+import com.joaobarbosadev.BarbosaShop.components.CustomResponse;
 import com.joaobarbosadev.BarbosaShop.dto.CategoryDTO;
 import com.joaobarbosadev.BarbosaShop.entities.Category;
 import com.joaobarbosadev.BarbosaShop.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Service
@@ -17,6 +22,7 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired HttpServletRequest servletRequest;
     @Transactional(readOnly = true)
     public Page<CategoryDTO> findAll(Pageable pageable) {
         Page<Category> categories = categoryRepository.findAll(pageable);
@@ -30,8 +36,19 @@ public class CategoryService {
     }
 
     @Transactional
-    public Category insert(Category category) {
-        return categoryRepository.save(category);
+    public CustomResponse<CategoryDTO> insert(CategoryDTO category) {
+
+        Category entity = new Category();
+        entity.setName(category.getName());
+
+        entity = categoryRepository.save(entity);
+        CustomResponse<CategoryDTO> response = new CustomResponse<>();
+        response.setData(new CategoryDTO(entity));
+        response.setMessage("Categoria inserida com sucesso!");
+        response.setPath(servletRequest.getRequestURI());
+        response.setStatus(HttpStatus.CREATED.value());
+        response.setTimestamp(Utils.getTimeInstante());
+        return response;
     }
 
 

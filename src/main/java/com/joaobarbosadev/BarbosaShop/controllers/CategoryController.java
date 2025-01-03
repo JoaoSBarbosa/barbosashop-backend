@@ -1,6 +1,6 @@
 package com.joaobarbosadev.BarbosaShop.controllers;
+import com.joaobarbosadev.BarbosaShop.components.CustomResponse;
 import com.joaobarbosadev.BarbosaShop.dto.CategoryDTO;
-import com.joaobarbosadev.BarbosaShop.entities.Category;
 import com.joaobarbosadev.BarbosaShop.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,8 +31,8 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> insert(@RequestBody Category category){
-        category = categoryService.insert(category);
-        return new ResponseEntity<>(category, HttpStatus.CREATED);
+    public ResponseEntity<CustomResponse<CategoryDTO>> insert(@RequestBody CategoryDTO category){
+        CustomResponse<CategoryDTO> response = categoryService.insert(category);
+        return new ResponseEntity<CustomResponse<CategoryDTO>>(response, HttpStatus.CREATED);
     }
 }
