@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public class CustomResponse<T> {
 
-    private Instant timestamp;
+    private String timestamp;
     private String message;
     private Integer status;
     private String path;
@@ -12,7 +12,7 @@ public class CustomResponse<T> {
 
     public CustomResponse(){}
 
-    public CustomResponse(Instant timestamp, String message, Integer status, String path, T data) {
+    public CustomResponse(String timestamp, String message, Integer status, String path, T data) {
         this.timestamp = timestamp;
         this.message = message;
         this.status = status;
@@ -20,11 +20,11 @@ public class CustomResponse<T> {
         this.data = data;
     }
 
-    public Instant getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Instant timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

@@ -8,6 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping(value = "/categories")
@@ -29,10 +32,17 @@ public class CategoryController {
         CategoryDTO dto = categoryService.findById(id);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
-
     @PostMapping
-    public ResponseEntity<CustomResponse<CategoryDTO>> insert(@RequestBody CategoryDTO category){
-        CustomResponse<CategoryDTO> response = categoryService.insert(category);
+    public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO category){
+        category = categoryService.insert(category);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
+        return ResponseEntity.created(uri).body(category);
+    }
+
+    @PostMapping("/custom")
+    public ResponseEntity<CustomResponse<CategoryDTO>> insertCustom(@RequestBody CategoryDTO category){
+        CustomResponse<CategoryDTO> response = categoryService.insertCustom(category);
         return new ResponseEntity<CustomResponse<CategoryDTO>>(response, HttpStatus.CREATED);
     }
 }

@@ -36,7 +36,15 @@ public class CategoryService {
     }
 
     @Transactional
-    public CustomResponse<CategoryDTO> insert(CategoryDTO category) {
+    public CategoryDTO insert(CategoryDTO category) {
+        Category entity = new Category();
+        entity.setName(category.getName());
+        entity = categoryRepository.save(entity);
+        return new CategoryDTO(entity);
+    }
+
+    @Transactional
+    public CustomResponse<CategoryDTO> insertCustom(CategoryDTO category) {
 
         Category entity = new Category();
         entity.setName(category.getName());
@@ -47,7 +55,7 @@ public class CategoryService {
         response.setMessage("Categoria inserida com sucesso!");
         response.setPath(servletRequest.getRequestURI());
         response.setStatus(HttpStatus.CREATED.value());
-        response.setTimestamp(Utils.getTimeInstante());
+        response.setTimestamp(Utils.getFormatterInstance());
         return response;
     }
 
