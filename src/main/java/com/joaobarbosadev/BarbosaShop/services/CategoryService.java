@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -22,7 +23,9 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Autowired HttpServletRequest servletRequest;
+    @Autowired
+    HttpServletRequest servletRequest;
+
     @Transactional(readOnly = true)
     public Page<CategoryDTO> findAll(Pageable pageable) {
         Page<Category> categories = categoryRepository.findAll(pageable);
@@ -31,7 +34,7 @@ public class CategoryService {
 
     @Transactional(readOnly = true)
     public CategoryDTO findById(Long id) {
-        Category category = categoryRepository.findById(id).orElseThrow(()-> new ControllerNotFoundException("Categoria não encontrada com o ID: " + id));
+        Category category = categoryRepository.findById(id).orElseThrow(() -> new ControllerNotFoundException("Categoria não encontrada com o ID: " + id));
         return new CategoryDTO(category);
     }
 
@@ -57,6 +60,30 @@ public class CategoryService {
         response.setStatus(HttpStatus.CREATED.value());
         response.setTimestamp(Utils.getFormatterInstance());
         return response;
+    }
+
+
+    @Transactional
+    public CategoryDTO update(CategoryDTO dto, Long id) {
+        try {
+            Category category = categoryRepository.getReferenceById(id);
+            if (dto.getName() != null) category.setName(dto.getName());
+            category = categoryRepository.save(category);
+            return new CategoryDTO(category);
+        } catch (EntityNotFoundException e) {
+            throw new ControllerNotFoundException("Não foi localizado registro de categoria com o ID: " + id);
+        }
+    }
+
+    @Transactional
+    public String delete(Long id) {
+        try {
+            Category category = categoryRepository.getReferenceById(id);
+            categoryRepository.delete(category);
+            return "Categoria removida com sucesso!";
+        }catch (EntityNotFoundException e) {
+            throw new ControllerNotFoundException("Não foi localizado registro de categoria com o ID: " + id);
+        }
     }
 
 

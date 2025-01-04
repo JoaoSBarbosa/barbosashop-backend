@@ -45,4 +45,16 @@ public class CategoryController {
         CustomResponse<CategoryDTO> response = categoryService.insertCustom(category);
         return new ResponseEntity<CustomResponse<CategoryDTO>>(response, HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoryDTO> update(@RequestBody CategoryDTO category, @PathVariable Long id) {
+        category = categoryService.update(category, id);
+        return new ResponseEntity<>(category, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        String result = categoryService.delete(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }
