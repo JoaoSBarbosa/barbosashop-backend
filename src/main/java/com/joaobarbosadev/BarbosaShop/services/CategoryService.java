@@ -7,6 +7,8 @@ import com.joaobarbosadev.BarbosaShop.dto.CategoryDTO;
 import com.joaobarbosadev.BarbosaShop.entities.Category;
 import com.joaobarbosadev.BarbosaShop.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -75,14 +77,16 @@ public class CategoryService {
         }
     }
 
-    @Transactional
     public String delete(Long id) {
         try {
-            Category category = categoryRepository.getReferenceById(id);
-            categoryRepository.delete(category);
+            categoryRepository.deleteById(id);
             return "Categoria removida com sucesso!";
-        }catch (EntityNotFoundException e) {
+
+        }catch (EmptyResultDataAccessException e){
             throw new ControllerNotFoundException("Não foi localizado registro de categoria com o ID: " + id);
+        } catch (DataIntegrityViolationException e){
+            throw new ControllerNotFoundException("Esta categoria foi localizado registro de categoria com o ID: " + id);
+
         }
     }
 
