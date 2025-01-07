@@ -1,6 +1,7 @@
 package com.joaobarbosadev.BarbosaShop.services;
 
 import com.joaobarbosadev.BarbosaShop.Exceptions.ControllerNotFoundException;
+import com.joaobarbosadev.BarbosaShop.Exceptions.DataBaseException;
 import com.joaobarbosadev.BarbosaShop.Utils.Utils;
 import com.joaobarbosadev.BarbosaShop.components.CustomResponse;
 import com.joaobarbosadev.BarbosaShop.dto.CategoryDTO;
@@ -80,15 +81,15 @@ public class CategoryService {
     public String delete(Long id) {
         try {
             categoryRepository.deleteById(id);
-            return "Categoria removida com sucesso!";
+            return "Categoria removida com sucesso.";
 
-        }catch (EmptyResultDataAccessException e){
-            throw new ControllerNotFoundException("Não foi localizado registro de categoria com o ID: " + id);
-        } catch (DataIntegrityViolationException e){
-            throw new ControllerNotFoundException("Esta categoria foi localizado registro de categoria com o ID: " + id);
-
+        } catch (EmptyResultDataAccessException e) {
+            throw new ControllerNotFoundException("Nenhum registro de categoria encontrado com o ID: " + id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataBaseException("Violação de integridade. O registro está vinculado a outros dados e não pode ser removido.");
         }
     }
+
 
 
 }
