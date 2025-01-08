@@ -3,6 +3,7 @@ package com.joaobarbosadev.BarbosaShop.entities;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,9 +18,11 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition = "Text")
     private String description;
     private Double price;
-    private String imgUri;
+    private String imgUrl;
+    private Instant date;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -42,6 +45,26 @@ public class Product implements Serializable {
             )
     )
     private Set<Category> categories = new HashSet<>();
+
+    public Product() {
+    }
+
+    public Product(Long id, String name, String description, Double price, String imgUrl, Instant date) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
+        this.date = date;
+    }
+
+    public Instant getDate() {
+        return date;
+    }
+
+    public void setDate(Instant date) {
+        this.date = date;
+    }
 
 
     public Long getId() {
@@ -77,11 +100,11 @@ public class Product implements Serializable {
     }
 
     public String getImgUri() {
-        return imgUri;
+        return imgUrl;
     }
 
-    public void setImgUri(String imgUri) {
-        this.imgUri = imgUri;
+    public void setImgUri(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public Set<Category> getCategories() {

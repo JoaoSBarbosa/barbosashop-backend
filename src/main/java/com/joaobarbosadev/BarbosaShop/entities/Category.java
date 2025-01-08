@@ -3,6 +3,7 @@ package com.joaobarbosadev.BarbosaShop.entities;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +18,7 @@ public class Category implements Serializable {
     private Long id;
 
     private String name;
+//    private Instant createdAt;
 
     public Category(Long id, String name) {
         this.id = id;
