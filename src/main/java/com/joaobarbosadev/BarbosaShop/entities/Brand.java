@@ -13,6 +13,7 @@ public class Brand {
     private String name;
     private String description;
     private String logoUrl;
+    @Enumerated(EnumType.STRING)
     private Country country;
     private String site;
 

@@ -16,7 +16,10 @@ public enum Country {
     REINO_UNIDO("Reino Unido"),
     AUSTRALIA("Austrália"),
     MEXICO("México"),
-    ESPANHA("Espanha");
+    ESPANHA("Espanha"),
+    TAIWAN("Taiwan"),
+    COREIA_SUL("Coreia do Sul"),
+    SUICA("Suiça");
 
 
     private String description;
