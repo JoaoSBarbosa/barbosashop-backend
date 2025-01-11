@@ -65,6 +65,33 @@ public class Product implements Serializable {
         this.date = date;
     }
 
+    public Product(Long id, String name, String description, Double price, String imgUrl, Instant date, Set<Category> categories, Brand brand) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
+        this.date = date;
+        this.categories = categories;
+        this.brand = brand;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
     public Instant getDate() {
         return date;
     }

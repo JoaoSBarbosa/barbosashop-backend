@@ -28,6 +28,14 @@ public class Brand {
         this.site = site;
     }
 
+
+    @PostLoad
+    public void adjustCountryEnum() {
+        if (country != null) {
+            this.country = Country.valueOf(country.name().toUpperCase());
+        }
+    }
+
     public Long getId() {
         return id;
     }
