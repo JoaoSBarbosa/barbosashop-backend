@@ -11,7 +11,7 @@ O Barbosashop é um sistema de catálogo de produtos, onde é possível cadastra
 
 1. Clone o repositório do GitHub para sua máquina local.
 2. Abra o projeto em sua IDE de preferência (como o Spring Tool Suite ou IntelliJ).
-3. Configure um banco de dados compatível (como PostgreSQL) e atualize as configurações no arquivo `application.properties`.
+3. Configure um banco de dados compatível (como PostgreSQL) e atualize as configurações no arquivo `application-dev.properties`.
 4. Execute a aplicação.
 
 ## Endpoints Disponíveis
