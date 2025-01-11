@@ -46,6 +46,13 @@ public class Product implements Serializable {
     )
     private Set<Category> categories = new HashSet<>();
 
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
+
     public Product() {
     }
 
