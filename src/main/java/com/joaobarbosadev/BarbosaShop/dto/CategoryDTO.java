@@ -4,6 +4,7 @@ import com.joaobarbosadev.BarbosaShop.entities.Category;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.Instant;
 
 public class CategoryDTO implements Serializable {
     @Serial
@@ -11,18 +12,29 @@ public class CategoryDTO implements Serializable {
 
     private Long id;
     private String name;
+    private Instant createdAt;
 
 
     public CategoryDTO() {}
 
-    public CategoryDTO(Long id, String name) {
+    public CategoryDTO(Long id, String name, Instant createdAt) {
         this.id = id;
         this.name = name;
+        this.createdAt = createdAt;
     }
 
     public CategoryDTO(Category category) {
         id = category.getId();
         name = category.getName();
+        createdAt = category.getCreatedAt();
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -46,6 +58,7 @@ public class CategoryDTO implements Serializable {
         return "CategoryDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", createdAt=" + createdAt +
                 '}';
     }
 }

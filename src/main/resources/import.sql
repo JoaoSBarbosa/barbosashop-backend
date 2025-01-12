@@ -1,24 +1,24 @@
 
-INSERT INTO tb_categoria (name) VALUES ('Eletrônicos');
-INSERT INTO tb_categoria (name) VALUES ('Livros');
-INSERT INTO tb_categoria (name) VALUES ('Computadores');
-INSERT INTO tb_categoria (name) VALUES ('Cosplay e Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Videogames e Consoles');
-INSERT INTO tb_categoria (name) VALUES ('Action Figures');
-INSERT INTO tb_categoria (name) VALUES ('HQs e Mangás');
-INSERT INTO tb_categoria (name) VALUES ('Tecnologia e Gadgets');
-INSERT INTO tb_categoria (name) VALUES ('Colecionáveis');
-INSERT INTO tb_categoria (name) VALUES ('Gamepads e Joysticks');
-INSERT INTO tb_categoria (name) VALUES ('Monitores e Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Cadeira');
-INSERT INTO tb_categoria (name) VALUES ('Smartwatches');
-INSERT INTO tb_categoria (name) VALUES ('Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Celulares e Smartphones');
-INSERT INTO tb_categoria (name) VALUES ('Câmeras Digitais');
-INSERT INTO tb_categoria (name) VALUES ('Fones');
-INSERT INTO tb_categoria (name) VALUES ('Áudio Portátil e Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Drones');
-INSERT INTO tb_categoria (name) VALUES ('Controles e Joysticks');
+INSERT INTO tb_categoria (name, created_at) VALUES ('Eletrônicos', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Livros', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Computadores', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Cosplay e Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Videogames e Consoles', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Action Figures', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('HQs e Mangás', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Tecnologia e Gadgets', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Colecionáveis', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Gamepads e Joysticks', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Monitores e Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Cadeira', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Smartwatches', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Celulares e Smartphones', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Câmeras Digitais', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Fones', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Áudio Portátil e Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Drones', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Controles e Joysticks', NOW());
 
 
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('VidaFit', 'Marca especializada em dispositivos de saúde e fitness', 'https://example.com/images/vidafit-logo.png', 'BRASIL', 'https://vidafit.com.br');
