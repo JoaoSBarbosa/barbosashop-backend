@@ -18,10 +18,11 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Column(columnDefinition = "Text")
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
     private String imgUrl;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant date;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -63,6 +64,33 @@ public class Product implements Serializable {
         this.price = price;
         this.imgUrl = imgUrl;
         this.date = date;
+    }
+
+    public Product(Long id, String name, String description, Double price, String imgUrl, Instant date, Set<Category> categories, Brand brand) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
+        this.date = date;
+        this.categories = categories;
+        this.brand = brand;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     public Instant getDate() {
@@ -118,4 +146,17 @@ public class Product implements Serializable {
         return categories;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", date=" + date +
+                ", categories=" + categories +
+                ", brand=" + brand +
+                '}';
+    }
 }

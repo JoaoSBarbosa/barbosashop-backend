@@ -18,11 +18,13 @@ public class Category implements Serializable {
     private Long id;
 
     private String name;
-//    private Instant createdAt;
+    @Column(name = "created_at")
+    private Instant createdAt;
 
-    public Category(Long id, String name) {
+    public Category(Long id, String name, Instant createdAt) {
         this.id = id;
         this.name = name;
+        this.createdAt = createdAt;
     }
 
     public Category() {}
@@ -42,7 +44,13 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Category category)) return false;
@@ -59,6 +67,9 @@ public class Category implements Serializable {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", createdAt=" + createdAt +
                 '}';
     }
+
+
 }

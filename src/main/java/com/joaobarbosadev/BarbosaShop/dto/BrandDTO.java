@@ -1,25 +1,19 @@
-package com.joaobarbosadev.BarbosaShop.entities;
+package com.joaobarbosadev.BarbosaShop.dto;
+import com.joaobarbosadev.BarbosaShop.entities.Brand;
 import com.joaobarbosadev.BarbosaShop.enums.Country;
-import javax.persistence.*;
-import java.util.Objects;
 
-@Entity
-@Table(name = "tb_marca")
-public class Brand {
+public class BrandDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
     private String logoUrl;
-    @Enumerated(EnumType.STRING)
     private Country country;
     private String site;
 
-    public Brand() {}
+    public BrandDTO() {}
 
-    public Brand(Long id, String name, String description, String logoUrl, Country country, String site) {
+    public BrandDTO(Long id, String name, String description, String logoUrl, Country country, String site) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -28,12 +22,14 @@ public class Brand {
         this.site = site;
     }
 
+    public BrandDTO(Brand brand) {
+        id = brand.getId();
+        name = brand.getName();
+        description = brand.getDescription();
+        logoUrl = brand.getLogoUrl();
+        country = brand.getCountry();
+        site = brand.getSite();
 
-    @PostLoad
-    public void adjustCountryEnum() {
-        if (country != null) {
-            this.country = Country.valueOf(country.name().toUpperCase());
-        }
     }
 
     public Long getId() {
@@ -82,28 +78,5 @@ public class Brand {
 
     public void setSite(String site) {
         this.site = site;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Brand brand)) return false;
-        return Objects.equals(id, brand.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Brand{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", logoUrl='" + logoUrl + '\'' +
-                ", country=" + country +
-                ", site='" + site + '\'' +
-                '}';
     }
 }

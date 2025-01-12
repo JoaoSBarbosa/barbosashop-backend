@@ -1,46 +1,45 @@
 
-INSERT INTO tb_categoria (name) VALUES ('Eletrônicos');
-INSERT INTO tb_categoria (name) VALUES ('Livros');
-INSERT INTO tb_categoria (name) VALUES ('Computadores');
-INSERT INTO tb_categoria (name) VALUES ('Cosplay e Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Videogames e Consoles');
-INSERT INTO tb_categoria (name) VALUES ('Action Figures');
-INSERT INTO tb_categoria (name) VALUES ('HQs e Mangás');
-INSERT INTO tb_categoria (name) VALUES ('Tecnologia e Gadgets');
-INSERT INTO tb_categoria (name) VALUES ('Colecionáveis');
-INSERT INTO tb_categoria (name) VALUES ('Gamepads e Joysticks');
-INSERT INTO tb_categoria (name) VALUES ('Monitores e Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Cadeira');
-INSERT INTO tb_categoria (name) VALUES ('Smartwatches');
-INSERT INTO tb_categoria (name) VALUES ('Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Celulares e Smartphones');
-INSERT INTO tb_categoria (name) VALUES ('Câmeras Digitais');
-INSERT INTO tb_categoria (name) VALUES ('Fones');
-INSERT INTO tb_categoria (name) VALUES ('Áudio Portátil e Acessórios');
-INSERT INTO tb_categoria (name) VALUES ('Drones');
-INSERT INTO tb_categoria (name) VALUES ('Controles e Joysticks');
+INSERT INTO tb_categoria (name, created_at) VALUES ('Eletrônicos', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Livros', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Computadores', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Cosplay e Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Videogames e Consoles', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Action Figures', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('HQs e Mangás', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Tecnologia e Gadgets', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Colecionáveis', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Gamepads e Joysticks', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Monitores e Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Cadeira', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Smartwatches', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Celulares e Smartphones', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Câmeras Digitais', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Fones', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Áudio Portátil e Acessórios', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Drones', NOW());
+INSERT INTO tb_categoria (name, created_at) VALUES ('Controles e Joysticks', NOW());
 
 
-
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('VidaFit', 'Marca especializada em dispositivos de saúde e fitness', 'https://example.com/images/vidafit-logo.png', 'Brasil', 'https://vidafit.com.br');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Samsung', 'Multinacional sul-coreana especializada em eletrônicos', 'https://example.com/images/samsung-logo.png', 'Coreia do Sul', 'https://samsung.com.br');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('VidaFit', 'Marca especializada em dispositivos de saúde e fitness', 'https://example.com/images/vidafit-logo.png', 'BRASIL', 'https://vidafit.com.br');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Samsung', 'Multinacional sul-coreana especializada em eletrônicos', 'https://example.com/images/samsung-logo.png', 'COREIA_DO_SUL', 'https://samsung.com.br');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Dell', 'Fabricante de computadores e eletrônicos', 'https://example.com/images/dell-logo.png', 'EUA', 'https://dell.com.br');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Canon', 'Fabricante de equipamentos de imagem e fotografia', 'https://example.com/images/canon-logo.png', 'Japão', 'https://canon.com.br');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Sony', 'Fabricante de eletrônicos e soluções de entretenimento', 'https://example.com/images/sony-logo.png', 'Japão', 'https://sony.com.br');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Canon', 'Fabricante de equipamentos de imagem e fotografia', 'https://example.com/images/canon-logo.png', 'JAPAO', 'https://canon.com.br');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Sony', 'Fabricante de eletrônicos e soluções de entretenimento', 'https://example.com/images/sony-logo.png', 'JAPAO', 'https://sony.com.br');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Apple', 'Multinacional que projeta produtos eletrônicos e softwares', 'https://example.com/images/apple-logo.png', 'EUA', 'https://apple.com.br');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('PlayStation', 'Marca de consoles e jogos eletrônicos', 'https://example.com/images/playstation-logo.png', 'EUA', 'https://playstation.com.br');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('JBL', 'Marca especializada em sistemas de áudio e acústica', 'https://example.com/images/jbl-logo.png', 'EUA', 'https://jbl.com.br');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('DJI', 'Fabricante de drones e câmeras de alta tecnologia', 'https://example.com/images/dji-logo.png', 'China', 'https://dji.com');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Moza', 'Marca especializada em periféricos para simulação de corrida', 'https://example.com/images/moza-logo.png', 'China', 'https://moza.com');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('ThunderX3', 'Marca especializada em acessórios para gamers e PCs', 'https://s3.amazonaws.com/hx.repositorio/uploads/2017/07/14/1500065267log-thunderx3-header.png', 'China', 'https://thunderx3.com');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('LG', 'Fabricante global de eletrônicos e eletrodomésticos', 'https://www.lg.com/content/dam/lge/global/our-brand/src/mocks/bs0002/lg_electronics_logo_visual_background.png', 'Coreia do Sul', 'https://lg.com.br');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('DJI', 'Fabricante de drones e câmeras de alta tecnologia', 'https://example.com/images/dji-logo.png', 'CHINA', 'https://dji.com');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Moza', 'Marca especializada em periféricos para simulação de corrida', 'https://example.com/images/moza-logo.png', 'CHINA', 'https://moza.com');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('ThunderX3', 'Marca especializada em acessórios para gamers e PCs', 'https://s3.amazonaws.com/hx.repositorio/uploads/2017/07/14/1500065267log-thunderx3-header.png', 'CHINA', 'https://thunderx3.com');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('LG', 'Fabricante global de eletrônicos e eletrodomésticos', 'https://www.lg.com/content/dam/lge/global/our-brand/src/mocks/bs0002/lg_electronics_logo_visual_background.png', 'COREIA_DO_SUL', 'https://lg.com.br');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Xbox', 'Xbox é uma marca de consoles de jogos eletrônicos desenvolvida e patenteada pela Microsoft.', 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg', 'EUA', 'https://www.xbox.com/pt-BR');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Asus', 'AsusTek Computer Inc. estilizada como ASUSTeK conhecida mundialmente como ASUS, é uma empresa multinacional de hardware e eletrônicos com sede no distrito de Beitou, Taipei, Taiwan.', 'https://upload.wikimedia.org/wikipedia/commons/2/2e/ASUS_Logo.svg', 'Taiwan', 'https://www.asus.com/br/');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Asus', 'AsusTek Computer Inc. estilizada como ASUSTeK conhecida mundialmente como ASUS, é uma empresa multinacional de hardware e eletrônicos com sede no distrito de Beitou, Taipei, Taiwan.', 'https://upload.wikimedia.org/wikipedia/commons/2/2e/ASUS_Logo.svg', 'TAIWAN', 'https://www.asus.com/br/');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Apple', 'Apple (NASDAQ: AAPL; anteriormente Apple Computer) é uma empresa multinacional norte-americana que tem o objetivo de projetar e comercializar produtos eletrônicos de consumo, software de computador e computadores pessoais.', 'https://pt.wikipedia.org/wiki/Apple#/media/Ficheiro:Apple_logo_black.svg', 'EUA', 'https://www.apple.com/br/');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('IRobot', 'Fundada em 1990 e incorporada em Delaware, em 2000, a iRobot Corporation projeta robôs. A iRobot é um empresa pública da Nasdaq, com sede em Bedford, Massachusetts. ', 'https://pt.wikipedia.org/wiki/Apple#/media/Ficheiro:Apple_logo_black.svg', 'EUA', 'https://www.irobotloja.com.br/');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Logitech', 'Logitech International S.A., ou simplesmente Logitech, com sede corporativa em Lausanne, Suíça, é uma empresa do Grupo Logitech, e um dos líderes no mercado de periféricos.', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg', 'Suiça', 'https://www.logitechg.com/pt-br');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('Logitech', 'Logitech International S.A., ou simplesmente Logitech, com sede corporativa em Lausanne, Suíça, é uma empresa do Grupo Logitech, e um dos líderes no mercado de periféricos.', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg', 'SUICA', 'https://www.logitechg.com/pt-br');
 INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('GoPro', 'GoPro, Inc.[2] (comercializado como GoPro e às vezes estilizado como GoPRO) é uma empresa de tecnologia norte-americana fundada em 2002 por Nick Woodman. ', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/GoPro_logo.svg/250px-GoPro_logo.svg.png', 'EUA', 'https://gopro.com/pt/br/');
-INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('DXRacer', 'A DXRacer é uma empresa conhecida por fabricar e comercializar cadeiras ergonômicas, especialmente direcionadas para gamers e profissionais que passam a maior parte do dia diante do computador.', 'https://d2zmy6svdg3fju.cloudfront.net/Custom/Content/Themes/Shared/Themes/Mobile/dxracer/Images/logo-mobile.png', 'Brasil', 'https://m.dxracer.com.br/marcas/dxracer');
+INSERT INTO tb_marca (name, description, logo_url, country, site)VALUES ('DXRacer', 'A DXRacer é uma empresa conhecida por fabricar e comercializar cadeiras ergonômicas, especialmente direcionadas para gamers e profissionais que passam a maior parte do dia diante do computador.', 'https://d2zmy6svdg3fju.cloudfront.net/Custom/Content/Themes/Shared/Themes/Mobile/dxracer/Images/logo-mobile.png', 'BRASIL', 'https://m.dxracer.com.br/marcas/dxracer');
 
 
 INSERT INTO tb_produto (brand_id, name, price, date, description, img_url)VALUES (1,'SmartBand VidaFit 4.0', 255.99, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z','Com moldura de metal requintado e processo fosco, o relógio é resistente à corrosão e Wear-Resistant.The relógio é de dois botões de pressão design. a coroa giratória especial, elegantemente trabalhada através de processos cnc refinados, apenas imprensa longa/torção, pode operar o relógio facilmente.', 'https://e1-big.jpg');
