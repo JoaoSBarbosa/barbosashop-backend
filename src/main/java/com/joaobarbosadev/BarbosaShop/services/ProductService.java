@@ -1,6 +1,7 @@
 package com.joaobarbosadev.BarbosaShop.services;
 
 import com.joaobarbosadev.BarbosaShop.controllers.ProductController;
+import com.joaobarbosadev.BarbosaShop.dto.ProductDTO;
 import com.joaobarbosadev.BarbosaShop.entities.Product;
 import com.joaobarbosadev.BarbosaShop.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ public class ProductService {
 
 
     @Transactional(readOnly = true)
-    public Page<Product> findAll(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public Page<ProductDTO> findAll(Pageable pageable) {
+        Page<Product> products = productRepository.findAll(pageable);
+        return products.map((product -> new ProductDTO(product, product.getCategories())));
     }
 }

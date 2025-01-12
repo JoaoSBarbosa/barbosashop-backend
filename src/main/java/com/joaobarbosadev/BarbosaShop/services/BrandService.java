@@ -1,8 +1,11 @@
 package com.joaobarbosadev.BarbosaShop.services;
 
+import com.joaobarbosadev.BarbosaShop.dto.BrandDTO;
 import com.joaobarbosadev.BarbosaShop.entities.Brand;
 import com.joaobarbosadev.BarbosaShop.repositories.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +18,8 @@ public class BrandService {
     BrandRepository brandRepository;
 
     @Transactional(readOnly = true)
-    public List<Brand> findAll() {
-        return brandRepository.findAll();
+    public Page<BrandDTO> findAll(Pageable pageable) {
+        Page<Brand> brands = brandRepository.findAll(pageable);
+        return brands.map(BrandDTO::new);
     }
 }

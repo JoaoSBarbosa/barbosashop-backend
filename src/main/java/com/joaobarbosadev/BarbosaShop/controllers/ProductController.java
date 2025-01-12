@@ -1,5 +1,6 @@
 package com.joaobarbosadev.BarbosaShop.controllers;
 
+import com.joaobarbosadev.BarbosaShop.dto.ProductDTO;
 import com.joaobarbosadev.BarbosaShop.entities.Product;
 import com.joaobarbosadev.BarbosaShop.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping
-    public ResponseEntity<Page<Product>> getAllProducts(Pageable pageable) {
-        Page<Product> page = productService.findAll(pageable);
+    public ResponseEntity<Page<ProductDTO>> getAllProducts(Pageable pageable) {
+        Page<ProductDTO> page = productService.findAll(pageable);
         return ResponseEntity.ok(page);
     }
 }

@@ -1,8 +1,11 @@
 package com.joaobarbosadev.BarbosaShop.controllers;
 
+import com.joaobarbosadev.BarbosaShop.dto.BrandDTO;
 import com.joaobarbosadev.BarbosaShop.entities.Brand;
 import com.joaobarbosadev.BarbosaShop.services.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +23,8 @@ public class BrandController {
 
 
     @GetMapping
-    public ResponseEntity<List<Brand>> getAllBrands() {
-        List<Brand> brands = brandService.findAll();
+    public ResponseEntity<Page<BrandDTO>> getAllBrands(Pageable pageable) {
+        Page<BrandDTO> brands = brandService.findAll(pageable);
         return new ResponseEntity<>(brands, HttpStatus.OK);
     }
 }

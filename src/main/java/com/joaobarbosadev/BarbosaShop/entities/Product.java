@@ -145,4 +145,17 @@ public class Product implements Serializable {
         return categories;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", date=" + date +
+                ", categories=" + categories +
+                ", brand=" + brand +
+                '}';
+    }
 }
